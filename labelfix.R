@@ -11,3 +11,6 @@ guesses<-data.frame(var=q.name,
 
 guesses$response<-tolower(gsub("."," ",guesses$response,fixed=T))
 truth$response<-tolower(truth$response)
+
+
+table(guesses$var%in%truth$var)
