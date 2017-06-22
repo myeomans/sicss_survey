@@ -1,10 +1,10 @@
 
-truth<-read.csv("pew.csv", stringsAsFactors = F)
+truth<-read.csv("pewestimates.csv", stringsAsFactors = F)
 
-
+predictions<-sample(1:100, nrow(truth))
 
 
 
 plot(x=truth$pew.estimates,
-     y=sample(1:100, nrow(truth)))
-abline(a=0,b=1,col="forestgreen",lty=3)1
+     y=predictions)
+abline(a=0,b=1,col="forestgreen",lty=3)
