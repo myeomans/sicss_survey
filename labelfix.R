@@ -15,3 +15,5 @@ truth$response<-tolower(truth$response)
 
 table(guesses$var%in%truth$var,
       guesses$response%in%truth$response)
+
+guesses[!((guesses$var%in%truth$var)&(guesses$response%in%truth$response)),]
