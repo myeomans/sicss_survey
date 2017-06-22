@@ -16,4 +16,5 @@ truth$response<-tolower(truth$response)
 table(guesses$var%in%truth$var,
       guesses$response%in%truth$response)
 
-guesses[!((guesses$var%in%truth$var)&(guesses$response%in%truth$response)),]
+guess.match<-guesses[((guesses$var%in%truth$var)&(guesses$response%in%truth$response)),]
+truth.match<-truth[((truth$var%in%guesses$var)&(truth$response%in%guesses$response)),]
