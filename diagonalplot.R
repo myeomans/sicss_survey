@@ -1,5 +1,5 @@
 
-match.plot<-function(data1,data2){
+match.plot<-function(data1,data2,title="guesses"){
   guess.match<-data1[((data1$var%in%data2$var)&(data1$response%in%data2$response)),]
   truth.match<-data2[((data2$var%in%data1$var)&(data2$response%in%data1$response)),]
   
@@ -14,12 +14,16 @@ match.plot<-function(data1,data2){
        y=match.set$estimates,
        xlim=c(0,100),ylim=c(0,100),
        xlab="Pew Estimate",
-       ylab="mTurk Estimate")
+       ylab="mTurk Estimate",
+       main=title)
   
   abline(a=0,b=1,col="forestgreen",lty=3)
   
-  fit<-cor(unweight.match$pew.estimates,unweight.match$estimate)^2
+  fit<-cor(match.set$pew.estimates,match.set$estimate)^2
   
   text(x=10,y=95,paste("R^2 =",round(fit,3)))
 }
-match.plot(guesses,truth)
+
+match.plot(raw.guesses,truth,"Unweighted Estimates")
+match.plot(weight.guesses,truth,"Weighted Estimates")
+
