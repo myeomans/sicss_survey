@@ -24,3 +24,4 @@ for(col in colnames(df_new)){
   }
 }
 weighted_mean = colSums(df_new)/sum(df_new$weight)
+write.csv(weighted_mean,'weighted_mean.csv')
