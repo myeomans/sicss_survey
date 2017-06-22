@@ -26,4 +26,3 @@ match.plot<-function(data1,data2,title="guesses"){
 
 match.plot(raw.guesses,truth,"Unweighted Estimates")
 match.plot(weight.guesses,truth,"Weighted Estimates")
-
